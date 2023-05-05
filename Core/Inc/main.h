@@ -46,7 +46,7 @@ extern "C" {
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
-
+void LogMsg(const char *msg);
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
