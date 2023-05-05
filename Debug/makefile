@@ -34,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := G071RB_DEFAULT_BOARD
+BUILD_ARTIFACT_NAME := STM32_SleepMode
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-G071RB_DEFAULT_BOARD.elf \
+STM32_SleepMode.elf \
 
 MAP_FILES += \
-G071RB_DEFAULT_BOARD.map \
+STM32_SleepMode.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-G071RB_DEFAULT_BOARD.list \
+STM32_SleepMode.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: G071RB_DEFAULT_BOARD.elf secondary-outputs
+main-build: STM32_SleepMode.elf secondary-outputs
 
 # Tool invocations
-G071RB_DEFAULT_BOARD.elf G071RB_DEFAULT_BOARD.map: $(OBJS) $(USER_OBJS) C:\Users\lmorgoshia\STM32CubeIDE\workspace_1.12.1\G071RB_DEFAULT_BOARD\STM32G071RBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "G071RB_DEFAULT_BOARD.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"C:\Users\lmorgoshia\STM32CubeIDE\workspace_1.12.1\G071RB_DEFAULT_BOARD\STM32G071RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="G071RB_DEFAULT_BOARD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+STM32_SleepMode.elf STM32_SleepMode.map: $(OBJS) $(USER_OBJS) C:\Users\lmorgoshia\STM32CubeIDE\workspace_1.12.1\STM32_SleepMode\STM32G071RBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "STM32_SleepMode.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"C:\Users\lmorgoshia\STM32CubeIDE\workspace_1.12.1\STM32_SleepMode\STM32G071RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32_SleepMode.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-G071RB_DEFAULT_BOARD.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "G071RB_DEFAULT_BOARD.list"
+STM32_SleepMode.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "STM32_SleepMode.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) G071RB_DEFAULT_BOARD.elf G071RB_DEFAULT_BOARD.list G071RB_DEFAULT_BOARD.map default.size.stdout
+	-$(RM) STM32_SleepMode.elf STM32_SleepMode.list STM32_SleepMode.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
